@@ -7,9 +7,15 @@ pipeline {
         echo 'Build Successfull'
       }
     }
+    stage('Test') {
+      steps {
+        sh 'bash ./jenkins/script/test.sh'
+        input(message: 'Is Test Successfull and ready to continue ?', ok: 'Yes and continue to publish and execute')
+      }
+    }
   }
   environment {
-    Home = '.'
+    HOME = '.'
     PORT_NUM = '9090'
     CI = 'true'
   }
