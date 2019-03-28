@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'bash ./jenkinsract/jenkins/scripts/test.sh'
+        sh 'bash ./jenkins/scripts/test.sh'
         input(message: 'Is Test Successfull and ready to continue ?', ok: 'Yes and continue to publish and execute')
       }
     }
